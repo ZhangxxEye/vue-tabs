@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import './app-style.scss';
-import './vue-tags-input-dark.scss';
+// import './app-style.scss';
+// import './vue-tags-input-dark.scss';
 import axois from 'axios';
 
 export default {

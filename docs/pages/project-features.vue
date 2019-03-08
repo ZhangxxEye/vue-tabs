@@ -2,24 +2,40 @@
     <div id="project-features">
         <h1 class="title">loading</h1>
         <div class="features">
-            <loader ></loader>
+            <tabs>
+                <tab name="tab1">
+                    <p>
+                        这是一个例子这是一个例子这是一个例子这是一个例子
+                        这是一个例子这是一个例子这是一个例子这是一个例子
+                        这是一个例子这是一个例子这是一个例子这是一个例子
+                        这是一个例子这是一个例子这是一个例子这是一个例子
+                    </p>
+                </tab>
+                <tab name="tab2">这是tab2</tab>
+                <tab name="tab3">这是tab3</tab>
+            </tabs>
         </div>
     </div>
 </template>
 
 <script>
-    import loader from '../../src/index';
+    import tab from '../../src/tab';
+    import tabs from '../../src/tabs';
 
     export default {
         name: 'ProjectFeatures',
         components: {
-            loader
+            tab,
+            tabs
         }
     };
 </script>
 
 <style lang="scss">
     @import '~colors';
+    .tab-container{
+        padding: 10px;
+    }
 
     #app #project-features .tags-input {
         width: 100%;

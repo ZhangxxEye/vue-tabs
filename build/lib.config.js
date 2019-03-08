@@ -12,7 +12,7 @@ module.exports = {
     output: {
         path: resolve('../dist'),
         publicPath: '/dist/',
-        filename: 'index.js',
+        filename: 'tabs.vue.js',
         library: 'vueLoader',
         libraryTarget: 'umd',
     },

@@ -11,7 +11,7 @@ const tag = {
 };
 
 const index = {
-  name: 'index',
+  name: 'tabs.vue',
   description: 'The tags index',
   type: 'Number',
 };
@@ -135,7 +135,7 @@ export default [
         type: 'Object',
       },
       {
-        name: 'index',
+        name: 'tabs.vue',
         description: 'The items index',
         type: 'Number',
       },
