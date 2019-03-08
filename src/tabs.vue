@@ -1,7 +1,7 @@
 <template>
     <div class="tabs-container">
         <ul class="flex-box tabs">
-            <li v-for="(item,index) in tabs" class="flex-item tabs-item" @click="handleTabClick(index)"><span class="tab"><span class="text" :class="{active: currIndex == index}">{{item.name}}</span><span class="tab-active" v-show="currIndex == index"></span></span></li>
+            <li v-for="(item,index) in tabs" class="flex-item tabs-item" @click="handleTabClick(index)"><span class="tab"><span class="text" :class="{active: currIndex == index, disabled: disabledIndex == index}">{{item.name}}</span><span class="tab-active" v-show="currIndex == index"></span></span></li>
         </ul>
         <div class="tab-content-container">
             <slot/>
@@ -15,22 +15,44 @@
         name: 'tabs',
         data() {
             return {
-                currIndex: 0,
-                tabs: []
+                currIndex: this.activeIndex,
+                tabs: [],
+                disabledIndex: ''
             };
         },
         props: {
+            activeIndex: {
+                type: [String, Number],
+                default: 0
+            }
 
         },
         created() {
             this.tabs = this.$children;
+            this.$nextTick(function () {
+                this.setActiveTab();
+            });
         },
         methods: {
+            /**
+             * tab点击事件
+             * @param index 当前点击tab的序号
+             * */
             handleTabClick (index) {
+                if (this.disabledIndex == index) return;
                 this.currIndex = index;
-                this.$emit('tab', index);
+                this.$emit('clicked', index);
+                this.setActiveTab();
+            },
+            /**
+             * 设置tab的显示隐藏
+             */
+            setActiveTab () {
                 this.tabs.forEach((tab, index) => {
                     tab.isActiveTab = (this.currIndex == index);
+                    if (tab.isDisabled) {
+                        this.disabledIndex = index;
+                    }
                 });
             }
         }
@@ -42,6 +64,10 @@
     }
     .flex-item {
         flex: 1;
+    }
+    .disabled{
+        color: #cdcdcd;
+        cursor: not-allowed !important;
     }
 
     .tabs-container {

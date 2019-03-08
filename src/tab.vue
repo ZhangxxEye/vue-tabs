@@ -11,6 +11,10 @@
         name: "tab",
         props: {
             name: { required: true },
+            isDisabled: {
+                type: Boolean,
+                default: false
+            }
         },
         data () {
             return {

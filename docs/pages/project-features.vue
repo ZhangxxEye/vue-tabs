@@ -1,8 +1,8 @@
 <template lang="html">
     <div id="project-features">
-        <h1 class="title">loading</h1>
+        <h1 class="title">标签页</h1>
         <div class="features">
-            <tabs>
+            <tabs active-index="1" @clicked="handleClick">
                 <tab name="tab1">
                     <p>
                         这是一个例子这是一个例子这是一个例子这是一个例子
@@ -12,7 +12,7 @@
                     </p>
                 </tab>
                 <tab name="tab2">这是tab2</tab>
-                <tab name="tab3">这是tab3</tab>
+                <tab name="tab3" :isDisabled="true">这是tab3</tab>
             </tabs>
         </div>
     </div>
@@ -27,6 +27,11 @@
         components: {
             tab,
             tabs
+        },
+        methods: {
+            handleClick (value) {
+                console.log('selected', value);
+            }
         }
     };
 </script>
