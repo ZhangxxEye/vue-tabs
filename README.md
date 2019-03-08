@@ -8,18 +8,18 @@ npm install @nat/vue-tabs
 ## 用法
 ```
 <template lang="html">
-     <tabs active-index="1" @clicked="handleClick">
-        <tab name="tab1">
+     <vue-tabs active-index="1" @clicked="handleClick">
+        <vue-tab name="tab1">
             <p>
                 这是一个例子这是一个例子这是一个例子这是一个例子
                 这是一个例子这是一个例子这是一个例子这是一个例子
                 这是一个例子这是一个例子这是一个例子这是一个例子
                 这是一个例子这是一个例子这是一个例子这是一个例子
             </p>
-        </tab>
-        <tab name="tab2">这是tab2</tab>
-        <tab name="tab3" :isDisabled="true">这是tab3</tab>
-    </tabs>
+        </vue-tab>
+        <vue-tab name="tab2">这是tab2</vue-tab>
+        <vue-tab name="tab3" :isDisabled="true">这是tab3</vue-tab>
+    </vue-tabs>
 </template>
 ```
 ```
