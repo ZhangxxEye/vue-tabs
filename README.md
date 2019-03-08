@@ -3,7 +3,7 @@ tab标签页
 ## install
 NPM
 ```
-npm install @nat/vue-tabs
+npm install nat-vue-tabs
 ```
 ## 用法
 ```
@@ -24,7 +24,7 @@ npm install @nat/vue-tabs
 ```
 ```
 <script>
-    import {VueTabs, VueTab} from '@nat/vue-tabs';
+    import {VueTabs, VueTab} from 'nat-vue-tabs';
      export default {
             name: 'ProjectFeatures',
             components: {
@@ -41,7 +41,7 @@ npm install @nat/vue-tabs
 ```
 也可以这样注册
 ```
-import VueTabs from '@nat/vue-tabs';
+import VueTabs from 'nat-vue-tabs';
 Vue.use(VueTabs);
 ```
 
