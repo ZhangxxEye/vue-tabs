@@ -1,19 +1,20 @@
 {
-  "name": "@nat/vue-loader",
+  "name": "@nat/vue-tabs",
   "version": "1.0.0",
   "author": "ZhangxxEye",
   "license": "MIT",
-  "description": "加载框",
+  "description": "tab标签页",
   "homepage": "",
   "private": false,
   "keywords": [
     "javascript",
     "vue",
-    "loader"
+    "tabs",
+    "tab"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ZhangxxEye/vue-loader.git"
+    "url": "git@github.com:ZhangxxEye/vue-tabs.git"
   },
   "main": "dist/index.js",
   "scripts": {
