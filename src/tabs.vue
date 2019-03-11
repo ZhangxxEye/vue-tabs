@@ -1,7 +1,7 @@
 <template>
     <div class="tabs-container">
-        <ul class="flex-box tabs">
-            <li v-for="(item,index) in tabs" class="flex-item tabs-item" @click="handleTabClick(index)"><span class="tab"><span class="text" :class="{active: currIndex == index, disabled: disabledIndex == index}">{{item.name}}</span><span class="tab-active" v-show="currIndex == index"></span></span></li>
+        <ul ref="nav" class="flex-box tabs" :class="{'scroll-container': scrollable}">
+            <li ref="tabs" v-for="(item,index) in tabs" class="tabs-item flex-item" @click="handleTabClick(index)"><span class="tab"><span class="text" :class="{active: currIndex == index, disabled: disabledIndex == index}">{{item.name}}</span><span class="tab-active" v-show="currIndex == index"></span></span></li>
         </ul>
         <div class="tab-content-container">
             <slot/>
@@ -20,10 +20,19 @@
                 disabledIndex: ''
             };
         },
+        computed: {
+            scrollable () {
+                return this.tabs.length > this.swipeThreshold;
+            }
+        },
         props: {
             activeIndex: {
                 type: [String, Number],
                 default: 0
+            },
+            swipeThreshold: {
+                type: Number,
+                default: 4
             }
 
         },
@@ -43,6 +52,7 @@
                 this.currIndex = index;
                 this.$emit('clicked', index);
                 this.setActiveTab();
+                this.scrollTabs();
             },
             /**
              * 设置tab的显示隐藏
@@ -54,7 +64,24 @@
                         this.disabledIndex = index;
                     }
                 });
-            }
+            },
+            /**
+             * 移动滚动条，显示其他标签
+             */
+            scrollTabs () {
+                if (!this.scrollable) return;
+                const { tabs } = this.$refs;
+                const { nav } = this.$refs;
+                const { scrollLeft, offsetWidth: navWidth } = nav;
+                const { offsetLeft, offsetWidth: tabWidth } = tabs[this.currIndex];
+                this.scrollTo(nav, scrollLeft, offsetLeft - (navWidth - tabWidth) / 2);
+            },
+            /**
+             * 移动滚动条
+             */
+            scrollTo(el, from, to) {
+                el.scrollLeft += to - from;
+            },
         }
     };
 </script>
@@ -71,15 +98,22 @@
     }
 
     .tabs-container {
+        .scroll-container{
+            .tabs-item{
+                flex: 0 0 22%;
+            }
+        }
         width: 100%;
         border-radius: 12px 12px 0px 0px;
         background: white;
 
         .tabs {
-            padding: 0 27px;
+            /*padding: 0 27px;*/
             height: 45px;
             line-height: 45px;
             box-sizing: border-box;
+            overflow: hidden;
+            overflow-x: auto;
             .tabs-item {
                 text-align: center;
                 font-size: 16px;
@@ -110,6 +144,9 @@
                     }
                 }
             }
+        }
+        .tabs::-webkit-scrollbar{
+            display: none;
         }
     }
 </style>

@@ -13,7 +13,21 @@
                 </tab>
                 <tab name="tab2">这是tab2</tab>
                 <tab name="tab3" :isDisabled="true">这是tab3</tab>
+                <tab name="tab4">这是tab4</tab>
+                <tab name="tab5">这是tab5</tab>
             </tabs>
+        </div>
+        <div class="test-box">
+            <div class="item">tab1</div>
+            <div class="item">tab2</div>
+            <div class="item">tab3</div>
+            <div class="item">tab4</div>
+            <div class="item">tab4</div>
+            <div class="item">tab4</div>
+            <div class="item">tab4</div>
+            <div class="item">tab4</div>
+            <div class="item">tab4</div>
+            <div class="item">tab4</div>
         </div>
     </div>
 </template>
@@ -38,6 +52,17 @@
 
 <style lang="scss">
     @import '~colors';
+    .test-box{
+        display: flex;
+        overflow: hidden;
+        overflow-x: auto;
+    }
+    .test-box::-webkit-scrollbar{
+        display: none;
+    }
+    .item{
+        flex:0 0 22%;
+    }
     .tab-container{
         padding: 10px;
     }
