@@ -3,18 +3,15 @@
         <h1 class="title">标签页</h1>
         <div class="features">
             <tabs active-index="1" @clicked="handleClick">
-                <tab name="tab1">
+                <tab name="标签一">
                     <p>
-                        这是一个例子这是一个例子这是一个例子这是一个例子
-                        这是一个例子这是一个例子这是一个例子这是一个例子
-                        这是一个例子这是一个例子这是一个例子这是一个例子
-                        这是一个例子这是一个例子这是一个例子这是一个例子
+                        标签一
                     </p>
                 </tab>
-                <tab name="tab2">这是tab2</tab>
-                <tab name="tab3" :isDisabled="true">这是tab3</tab>
-                <tab name="tab4">这是tab4</tab>
-                <tab name="tab5">这是tab5</tab>
+                <tab name="标签二">这是tab2</tab>
+                <tab name="标签三" :isDisabled="true">这是tab3</tab>
+                <tab name="标签四">这是tab4</tab>
+                <tab name="标签五">这是tab5</tab>
             </tabs>
         </div>
         <div class="test-box">

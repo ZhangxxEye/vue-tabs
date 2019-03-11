@@ -1,5 +1,6 @@
 # vue-search
 tab标签页
+![tab标签页](//cdn.51talk.com/apollo/images/e08474e30ea4b87eeabbe4eb2c8b01a5.png)
 ## install
 NPM
 ```
