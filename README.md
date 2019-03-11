@@ -50,7 +50,8 @@ Vue.use(VueTabs);
 ##### tabs
 属性 | 说明 | 类型 | 默认值
 ---|---|---|---
-activeIndex | 激活的标签页的索引 | [string, Number] | 0 
+activeIndex | 激活的标签页的索引 | [string, Number] | 0
+swipeThreshold | 设置标签页超过多少个时，可以滚动 | [Number] | 4  
 ##### tab
 属性 | 说明 | 类型 | 默认值
 ---|---|---|---
